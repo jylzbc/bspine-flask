@@ -1,0 +1,7 @@
+flask
+opencv-python
+pillow
+scipy
+einops
+timm
+gevent

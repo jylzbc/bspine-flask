@@ -1,0 +1,27 @@
+<html>
+<head>
+  <title>Test for B-Spine or CVS-Spine service</title>
+  <script>
+    function updateFileName() {
+      const fileInput = document.querySelector('input[name="image"]');
+      const nameInput = document.querySelector('input[name="predict"]');
+      if (fileInput.files.length > 0) {
+        const fileName = fileInput.files[0].name; 
+        const baseName = fileName.substring(0, fileName.lastIndexOf('.')) || fileName;
+        nameInput.value = baseName + ".json"; 
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Test for B-spine or CVS-Spine service</h1>
+  <form method="POST" enctype="multipart/form-data" action="/predict">
+    <input type="file" name="image" onchange="updateFileName()">
+    <br><br>
+    <label>JSON: </label>
+    <input type="text" name="predict" readonly style="width: 200px;">
+    <br><br>
+    <input type="submit" value="submit">
+  </form>
+</body>
+</html>
